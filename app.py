@@ -1,15 +1,13 @@
 from flask import Flask, render_template, request
-import pymysql
+import os
+import psycopg2
 
 app = Flask(__name__)
 
-# MySQL Connection
-connection = pymysql.connect(
-    host="localhost",
-    user="root",
-    password="",   # XAMPP default password blank hota hai
-    database="portfolio_db"
-)
+# PostgreSQL Connection
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+connection = psycopg2.connect(DATABASE_URL)
 
 
 # ---------------- HOME ----------------
@@ -28,14 +26,15 @@ def contact():
 
     cursor = connection.cursor()
 
-    sql = """
-    INSERT INTO contact(name, email, message)
-    VALUES (%s, %s, %s)
-    """
+    cursor.execute(
+        """
+        INSERT INTO contact (name, email, message)
+        VALUES (%s, %s, %s)
+        """,
+        (name, email, message)
+    )
 
-    cursor.execute(sql, (name, email, message))
     connection.commit()
-
     cursor.close()
 
     return """
