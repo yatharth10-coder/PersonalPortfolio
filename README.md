@@ -1,5 +1,13 @@
 # Personal Portfolio Website
+## Home Page
 
+![Home](home.png)
+
+---
+
+## Admin Dashboard
+
+![Admin](admin.png)
 A modern and responsive Personal Portfolio Website developed using **Flask, HTML, CSS, JavaScript and MySQL**.
 
 ---
