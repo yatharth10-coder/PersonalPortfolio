@@ -1,13 +1,27 @@
 from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
 import os
-import psycopg2
 
 app = Flask(__name__)
 
-# PostgreSQL Connection
-DATABASE_URL = os.environ.get("DATABASE_URL")
+# PostgreSQL Database
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-connection = psycopg2.connect(DATABASE_URL)
+db = SQLAlchemy(app)
+
+
+# ---------------- DATABASE TABLE ----------------
+class Contact(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100))
+    email = db.Column(db.String(100))
+    message = db.Column(db.Text)
+
+
+# Create table automatically
+with app.app_context():
+    db.create_all()
 
 
 # ---------------- HOME ----------------
@@ -16,56 +30,48 @@ def home():
     return render_template("index.html")
 
 
-# ---------------- CONTACT FORM ----------------
+# ---------------- CONTACT ----------------
 @app.route("/contact", methods=["POST"])
 def contact():
 
-    name = request.form["name"]
-    email = request.form["email"]
-    message = request.form["message"]
-
-    cursor = connection.cursor()
-
-    cursor.execute(
-        """
-        INSERT INTO contact (name, email, message)
-        VALUES (%s, %s, %s)
-        """,
-        (name, email, message)
+    new_contact = Contact(
+        name=request.form["name"],
+        email=request.form["email"],
+        message=request.form["message"]
     )
 
-    connection.commit()
-    cursor.close()
+    db.session.add(new_contact)
+    db.session.commit()
 
     return """
     <html>
     <head>
-        <title>Success</title>
-        <style>
-            body{
-                background:#0f172a;
-                color:white;
-                font-family:Arial;
-                text-align:center;
-                padding-top:120px;
-            }
-            a{
-                color:#38bdf8;
-                text-decoration:none;
-                font-size:20px;
-            }
-        </style>
+    <title>Success</title>
+    <style>
+    body{
+        background:#0f172a;
+        color:white;
+        font-family:Arial;
+        text-align:center;
+        padding-top:120px;
+    }
+    a{
+        color:#38bdf8;
+        text-decoration:none;
+        font-size:20px;
+    }
+    </style>
     </head>
 
     <body>
 
-        <h1>✅ Thank You!</h1>
+    <h1>✅ Thank You!</h1>
 
-        <h2>Your message has been submitted successfully.</h2>
+    <h2>Your message has been submitted successfully.</h2>
 
-        <br>
+    <br>
 
-        <a href="/">⬅ Back to Portfolio</a>
+    <a href="/">⬅ Back to Portfolio</a>
 
     </body>
     </html>
@@ -76,13 +82,7 @@ def contact():
 @app.route("/admin")
 def admin():
 
-    cursor = connection.cursor()
-
-    cursor.execute("SELECT * FROM contact ORDER BY id DESC")
-
-    messages = cursor.fetchall()
-
-    cursor.close()
+    messages = Contact.query.order_by(Contact.id.desc()).all()
 
     return render_template("admin.html", messages=messages)
 
