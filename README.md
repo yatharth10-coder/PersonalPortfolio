@@ -93,7 +93,32 @@ http://127.0.0.1:5000
 ```
 
 ---
+# Personal Portfolio Website
 
+🚀 Live Demo:
+https://personalportfolio-asro.onrender.com
+
+## Features
+
+- Responsive Portfolio
+- Contact Form
+- Flask Backend
+- PostgreSQL Database
+- Admin Dashboard
+- Hosted on Render
+
+## Tech Stack
+
+- HTML
+- CSS
+- JavaScript
+- Python
+- Flask
+- PostgreSQL
+- Render
+- GitHub
+
+## Admin Panel
 ## Project Modules
 
 - Home Page
