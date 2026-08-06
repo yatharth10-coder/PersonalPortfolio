@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yatharth Ganeshe | Python Full Stack Developer</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav>
+
+        <div class="logo">
+            YG
+        </div>
+
+        <ul>
+
+            <li><a href="#home">Home</a></li>
+
+            <li><a href="#about">About</a></li>
+
+            <li><a href="#skills">Skills</a></li>
+
+            <li><a href="#projects">Projects</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
+        </ul>
+
+    </nav>
+
+    <!-- Hero -->
+
+    <section id="home" class="hero">
+
+        <div class="left">
+
+            <h3>Hello 👋</h3>
+
+            <h1>
+
+                I'm
+
+                <span>Yatharth Ganeshe</span>
+
+            </h1>
+
+            <h2>
+
+                Python Full Stack Developer
+
+            </h2>
+
+            <p>
+
+                Passionate BCA student at Amity University Mumbai.
+                I love building modern web applications using Python,
+                Flask, MySQL and JavaScript.
+
+            </p>
+
+<div class="hero-buttons">
+
+    <a href="#contact">
+        <button class="btn">
+            Hire Me
+        </button>
+    </a>
+
+    <a href="{{ url_for('static', filename='resume/resume.pdf') }}" download>
+        <button class="btn2">
+            Download Resume
+        </button>
+    </a>
+
+</div>
+
+<div class="social-icons">
+
+    <a href="https://github.com/yatharth10-coder" target="_blank">
+        <i class="fab fa-github"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/in/yatharthganeshe" target="_blank">
+        <i class="fab fa-linkedin"></i>
+    </a>
+
+    <a href="mailto:yatharthganeshe@gmail.com">
+        <i class="fa-solid fa-envelope"></i>
+    </a>
+
+</div>
+
+        </div>
+
+        <div class="right">
+
+            <img src="{{ url_for('static', filename='images/profile.jpg') }}"
+                alt="Profile">
+
+        </div>
+
+    </section>
+
+    <!-- About -->
+
+<section id="about">
+
+    <h2>About Me</h2>
+
+    <div class="about-container">
+
+        <div class="about-card">
+
+            <h3>Who Am I?</h3>
+
+            <p>
+
+                Hello! I'm <b>Yatharth Ganeshe</b>, a passionate
+                BCA student at <b>Amity University Mumbai</b>.
+
+                I enjoy creating modern web applications using
+                Python, Flask, JavaScript and MySQL.
+
+            </p>
+
+        </div>
+
+        <div class="about-card">
+
+            <h3>Career Goal</h3>
+
+            <p>
+
+                My goal is to become a Python Full Stack Developer
+                and work with international companies while building
+                scalable and modern software solutions.
+
+            </p>
+
+        </div>
+
+        <div class="about-card">
+
+            <h3>Education</h3>
+
+            <p>
+
+                Bachelor of Computer Applications (BCA)
+
+                <br>
+
+                Amity University Mumbai
+
+                <br>
+
+                Expected Graduation : 2027
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- Skills -->
+
+<section id="skills">
+
+<h2>Skills</h2>
+
+<div class="skills-container">
+
+<div class="skill">
+
+<p>Python <span>90%</span></p>
+
+<div class="progress">
+
+<div class="python"></div>
+
+</div>
+
+</div>
+
+<div class="skill">
+
+<p>HTML <span>95%</span></p>
+
+<div class="progress">
+
+<div class="html"></div>
+
+</div>
+
+</div>
+
+<div class="skill">
+
+<p>CSS <span>90%</span></p>
+
+<div class="progress">
+
+<div class="css"></div>
+
+</div>
+
+</div>
+
+<div class="skill">
+
+<p>JavaScript <span>85%</span></p>
+
+<div class="progress">
+
+<div class="javascript"></div>
+
+</div>
+
+</div>
+
+<div class="skill">
+
+<p>Flask <span>85%</span></p>
+
+<div class="progress">
+
+<div class="flask"></div>
+
+</div>
+
+</div>
+
+<div class="skill">
+
+<p>MySQL <span>85%</span></p>
+
+<div class="progress">
+
+<div class="mysql"></div>
+
+</div>
+
+</div>
+
+<div class="skill">
+
+<p>Git & GitHub <span>80%</span></p>
+
+<div class="progress">
+
+<div class="git"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+    <!-- Projects -->
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="project-container">
+
+<div class="project-card">
+
+<h3>🌐 Personal Portfolio Website</h3>
+
+<p>
+
+A modern responsive portfolio website developed using
+HTML, CSS, JavaScript, Flask and MySQL.
+
+</p>
+
+</div>
+
+<div class="project-card">
+
+<h3>✅ Task Management System</h3>
+
+<p>
+
+A CRUD web application where users can create,
+update, delete and manage daily tasks.
+
+</p>
+
+</div>
+
+<div class="project-card">
+
+<h3>🛒 E-Commerce Website</h3>
+
+<p>
+
+An online shopping platform with product listings,
+shopping cart and order management.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+    <!-- Contact -->
+
+    <section id="contact">
+
+        <h2>Contact Me</h2>
+
+        <form action="/contact" method="POST">
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                required>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required>
+
+            <textarea
+                name="message"
+                placeholder="Message"
+                required></textarea>
+
+            <button type="submit">
+
+                Send Message
+
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+
+            © 2026 Yatharth Ganeshe
+
+        </p>
+
+        <div>
+
+            <a href="https://github.com/yatharth10-coder">
+
+                <i class="fab fa-github"></i>
+
+            </a>
+
+            <a href="https://www.linkedin.com/in/yatharthganeshe">
+
+                <i class="fab fa-linkedin"></i>
+
+            </a>
+
+            <a href="mailto:yatharthganeshe@gmail.com">
+
+                <i class="fa-solid fa-envelope"></i>
+
+            </a>
+
+        </div>
+
+    </footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
